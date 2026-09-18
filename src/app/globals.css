@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: var(--color-canvas);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-subtle: var(--color-accent-subtle);
+  --color-border: var(--color-border);
+  --color-border-subtle: var(--color-border-subtle);
+
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  /* ==========================================================================
+     Nordic Minimalist & Natural Light Color Variables
+     Ganti nilai di bawah ini untuk mengubah seluruh tema warna website
+     ========================================================================== */
+  --color-canvas: #FDFBF7;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F5F5F4;
+  --color-primary: #1C1917;
+  --color-secondary: #78716C;
+  --color-accent: #C2410C;
+  --color-accent-hover: #9A3412;
+  --color-accent-subtle: #FFEDD5;
+  --color-border: #E7E5E4;
+  --color-border-subtle: #F2EFEB;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
