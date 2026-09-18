@@ -7,8 +7,6 @@ import { Sparkles, Heart, Eye } from "lucide-react";
 import { MENU_ITEMS } from "@/data/cafe-data";
 import { MenuCategory, MenuItem } from "@/types/cafe";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { MenuDetailModal } from "@/components/ui/menu-detail-modal";
 import { cn } from "@/utils/cn";
 
@@ -39,17 +37,17 @@ export function MenuSection() {
   };
 
   return (
-    <section id="menu" className="py-20 md:py-28 border-t border-border/70 scroll-mt-16">
+    <section id="menu" className="py-16 md:py-28 border-t border-border/70 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Katalog Pilihan"
           title="Menu Seduhan & Kudapan Unggulan"
-          subtitle="Diracik dengan bahan pilihan segar, tanpa pewarna atau perisa sintesis. Klik menu untuk detail komposisi dan pemesanan."
+          subtitle="Diracik dengan bahan pilihan segar, tanpa pewarna atau perisa sintesis. Ketuk menu untuk detail komposisi dan pemesanan."
           centered
         />
 
-        {/* Category Pills Filter with Smooth Sliding Pill */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        {/* Category Pills Filter - Touch Friendly & Horizontally Scrollable on Mobile */}
+        <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center scrollbar-none">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
@@ -57,7 +55,7 @@ export function MenuSection() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "relative px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 cursor-pointer border border-transparent",
+                  "relative px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-colors duration-200 cursor-pointer border border-transparent shrink-0 min-h-[44px] flex items-center justify-center select-none active:scale-95",
                   isActive
                     ? "text-surface"
                     : "text-secondary hover:text-primary hover:bg-surface-muted/60"
@@ -66,7 +64,7 @@ export function MenuSection() {
                 {isActive && (
                   <motion.div
                     layoutId="activePillIndicator"
-                    className="absolute inset-0 bg-primary rounded-full shadow-xs -z-10"
+                    className="absolute inset-0 bg-primary rounded-full shadow-[2px_2px_0px_var(--color-shadow)] -z-10"
                     transition={{ type: "spring", stiffness: 450, damping: 35 }}
                   />
                 )}
@@ -91,10 +89,11 @@ export function MenuSection() {
                 exit={{ opacity: 0, scale: 0.95, y: -10 }}
                 transition={{ duration: 0.25 }}
                 whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedItem(item)}
                 className="cursor-pointer"
               >
-                <div className="bg-surface border-2 border-primary rounded-3xl shadow-[5px_5px_0px_var(--color-shadow)] hover:shadow-[7px_7px_0px_var(--color-shadow)] transition-all flex flex-col group h-full overflow-hidden">
+                <div className="bg-surface border-2 border-primary rounded-3xl shadow-[5px_5px_0px_var(--color-shadow)] hover:shadow-[7px_7px_0px_var(--color-shadow)] active:shadow-[2px_2px_0px_var(--color-shadow)] transition-all flex flex-col group h-full overflow-hidden">
                   {/* Image thumbnail */}
                   {item.image && (
                     <div className="relative aspect-16/10 overflow-hidden bg-surface-muted border-b-2 border-primary">
@@ -105,7 +104,7 @@ export function MenuSection() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                      <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
                         {item.isSignature && (
                           <span className="text-[10px] font-extrabold py-0.5 px-2.5 rounded-full bg-warm-yellow text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
                             <Sparkles className="w-3 h-3 text-accent" />
@@ -120,11 +119,11 @@ export function MenuSection() {
                         )}
                       </div>
 
-                      {/* Subtle hover overlay hint */}
-                      <div className="absolute inset-0 bg-primary/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      {/* Tap / Hover Overlay */}
+                      <div className="absolute inset-0 bg-primary/25 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity flex items-center justify-center">
                         <span className="inline-flex items-center gap-1.5 text-xs font-black text-primary bg-warm-yellow border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)] px-3.5 py-1.5 rounded-full">
                           <Eye className="w-3.5 h-3.5" />
-                          <span>Lihat Detail</span>
+                          <span>Lihat Detail & Order</span>
                         </span>
                       </div>
                     </div>
@@ -147,15 +146,20 @@ export function MenuSection() {
                     </div>
 
                     {item.tags && item.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1 pt-1">
-                        {item.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="text-[10px] font-bold text-primary bg-surface-muted border border-border px-2 py-0.5 rounded-md"
-                          >
-                            #{tag}
-                          </span>
-                        ))}
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-border/40">
+                        <div className="flex flex-wrap gap-1">
+                          {item.tags.map((tag, idx) => (
+                            <span
+                              key={idx}
+                              className="text-[10px] font-bold text-secondary bg-surface-muted border border-border px-2 py-0.5 rounded-md"
+                            >
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                        <span className="text-[10px] font-extrabold text-accent flex items-center gap-1 sm:hidden">
+                          Detail →
+                        </span>
                       </div>
                     )}
                   </div>
