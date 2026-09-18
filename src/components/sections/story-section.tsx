@@ -40,26 +40,27 @@ export function StorySection() {
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <Card key={idx} className="hover:border-accent/40 hover:shadow-sm transition-all group">
-                <CardContent className="p-8 space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-accent-subtle text-accent flex items-center justify-center group-hover:scale-105 transition-transform">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm text-secondary leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <div
+                key={idx}
+                className="bg-surface rounded-3xl border-2 border-primary shadow-[4px_4px_0px_var(--color-shadow)] hover:shadow-[7px_7px_0px_var(--color-shadow)] hover:-translate-y-1 transition-all p-8 space-y-4 group"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-warm-yellow text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <Icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-extrabold text-primary group-hover:text-accent transition-colors">
+                  {pillar.title}
+                </h3>
+                <p className="text-sm text-secondary leading-relaxed font-medium">
+                  {pillar.description}
+                </p>
+              </div>
             );
           })}
         </div>
 
         {/* Highlight quote banner */}
-        <div className="mt-16 p-8 md:p-12 rounded-3xl bg-surface border border-border flex flex-col md:flex-row items-center gap-8">
-          <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0 rounded-2xl overflow-hidden border border-border">
+        <div className="mt-16 p-8 md:p-12 rounded-3xl bg-surface border-2 border-primary shadow-[6px_6px_0px_var(--color-shadow)] flex flex-col md:flex-row items-center gap-8">
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0 rounded-2xl overflow-hidden border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)]">
             <Image
               src="https://images.unsplash.com/photo-1497636577773-f1231844b336?q=80&w=400&auto=format&fit=crop"
               alt="Seduhan Kopi Sangkara"
@@ -69,10 +70,10 @@ export function StorySection() {
             />
           </div>
           <div className="space-y-2 text-center md:text-left">
-            <p className="text-base sm:text-lg font-medium italic text-primary">
+            <p className="text-base sm:text-lg font-bold italic text-primary">
               &ldquo;Secangkir kopi yang baik bukan sekadar pengusir kantuk, melainkan jeda berharga untuk menyelaraskan kembali pikiran dengan hari.&rdquo;
             </p>
-            <p className="text-xs uppercase tracking-widest font-bold text-accent">
+            <p className="text-xs uppercase tracking-widest font-black text-accent bg-accent-subtle px-3 py-1 rounded-full inline-block border border-accent/20">
               — Tim Barista Kopi Sangkara
             </p>
           </div>

@@ -54,10 +54,10 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button variant="accent" size="sm">
+            <button className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full font-black text-xs text-surface bg-accent border-2 border-primary shadow-[2.5px_2.5px_0px_var(--color-shadow)] hover:shadow-[4px_4px_0px_var(--color-shadow)] hover:-translate-y-0.5 transition-all cursor-pointer">
               <span>Hubungi Kafe</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </Button>
+            </button>
           </a>
         </div>
 

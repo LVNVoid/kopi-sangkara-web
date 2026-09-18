@@ -11,18 +11,22 @@
   --color-accent-subtle: var(--color-accent-subtle);
   --color-border: var(--color-border);
   --color-border-subtle: var(--color-border-subtle);
+  --color-warm-yellow: var(--color-warm-yellow);
+  --color-warm-orange: var(--color-warm-orange);
+  --color-shadow: var(--color-shadow);
+  --color-pattern-dot: var(--color-pattern-dot);
 
   --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
 }
 
 :root {
   /* ==========================================================================
-     Nordic Minimalist & Natural Light Color Variables
-     Ganti nilai di bawah ini untuk mengubah seluruh tema warna website
+     Playful Artisan Cafe Color Variables
+     Ubah nilai di bawah ini untuk mengubah seluruh tema warna website
      ========================================================================== */
-  --color-canvas: #FDFBF7;
+  --color-canvas: #FAF6EF;
   --color-surface: #FFFFFF;
-  --color-surface-muted: #F5F5F4;
+  --color-surface-muted: #F5F2EB;
   --color-primary: #1C1917;
   --color-secondary: #78716C;
   --color-accent: #C2410C;
@@ -30,6 +34,10 @@
   --color-accent-subtle: #FFEDD5;
   --color-border: #E7E5E4;
   --color-border-subtle: #F2EFEB;
+  --color-warm-yellow: #FEF08A;
+  --color-warm-orange: #FED7AA;
+  --color-shadow: #1C1917;
+  --color-pattern-dot: #D7CEBF;
 }
 
 html {
@@ -42,4 +50,25 @@ body {
   font-family: var(--font-sans);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.bg-playful-pattern {
+  background-image: radial-gradient(circle, var(--color-pattern-dot) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

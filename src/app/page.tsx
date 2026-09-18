@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/navbar";
 import { HeroSection } from "@/components/sections/hero-section";
+import { MarqueeRibbon } from "@/components/ui/marquee-ribbon";
 import { StorySection } from "@/components/sections/story-section";
 import { MenuSection } from "@/components/sections/menu-section";
 import { GallerySection } from "@/components/sections/gallery-section";
@@ -8,10 +9,11 @@ import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-canvas text-primary selection:bg-accent selection:text-white">
+    <div className="min-h-screen flex flex-col bg-canvas text-primary selection:bg-accent selection:text-white bg-playful-pattern relative">
       <Navbar />
       <main className="flex-1">
         <HeroSection />
+        <MarqueeRibbon />
         <StorySection />
         <MenuSection />
         <GallerySection />

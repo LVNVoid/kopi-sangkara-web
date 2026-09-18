@@ -26,7 +26,7 @@ export function GallerySection() {
             <div
               key={item.id}
               onClick={() => setSelectedGalleryItem(item)}
-              className="relative group rounded-3xl overflow-hidden border border-border bg-surface shadow-xs transition-all duration-300 hover:shadow-lg cursor-pointer"
+              className="relative group rounded-3xl overflow-hidden border-2 border-primary bg-surface shadow-[6px_6px_0px_var(--color-shadow)] transition-all duration-300 hover:shadow-[8px_8px_0px_var(--color-shadow)] hover:-translate-y-1 cursor-pointer"
             >
               <div className="aspect-16/10 relative overflow-hidden">
                 <Image
@@ -40,20 +40,20 @@ export function GallerySection() {
 
                 {/* Center zoom icon on hover */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-12 h-12 rounded-full bg-primary/80 backdrop-blur-xs text-white flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-full bg-warm-yellow border-2 border-primary text-primary flex items-center justify-center shadow-[3px_3px_0px_var(--color-shadow)] transform group-hover:scale-110 transition-transform">
                     <ZoomIn className="w-5 h-5" />
                   </div>
                 </div>
               </div>
 
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                <span className="text-[11px] uppercase tracking-widest font-bold text-accent-subtle bg-primary/50 px-2.5 py-0.5 rounded-full backdrop-blur-xs border border-white/10">
+                <span className="text-[11px] uppercase tracking-widest font-black text-primary bg-warm-yellow px-3 py-1 rounded-full border border-primary shadow-[2px_2px_0px_var(--color-shadow)]">
                   {item.category}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold pt-1">
+                <h3 className="text-lg sm:text-xl font-extrabold pt-2">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-surface-muted/90 line-clamp-1 font-light">
+                <p className="text-xs sm:text-sm text-surface-muted/90 line-clamp-1 font-medium">
                   {item.subtitle}
                 </p>
               </div>

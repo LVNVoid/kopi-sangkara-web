@@ -52,11 +52,11 @@ export function MenuDetailModal({ item, onClose }: MenuDetailModalProps) {
       />
 
       {/* Modal Dialog Card */}
-      <div className="relative w-full max-w-lg bg-surface rounded-3xl border border-border shadow-xl overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-lg bg-surface rounded-3xl border-2 border-primary shadow-[8px_8px_0px_var(--color-shadow)] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-surface/90 border border-border text-secondary hover:text-primary hover:bg-surface flex items-center justify-center transition-all cursor-pointer"
+          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-surface border-2 border-primary text-primary hover:bg-warm-yellow flex items-center justify-center shadow-[2px_2px_0px_var(--color-shadow)] transition-all cursor-pointer"
           aria-label="Tutup"
         >
           <X className="w-4 h-4" />
@@ -64,7 +64,7 @@ export function MenuDetailModal({ item, onClose }: MenuDetailModalProps) {
 
         {/* Thumbnail Hero */}
         {item.image && (
-          <div className="relative aspect-16/9 w-full bg-surface-muted overflow-hidden">
+          <div className="relative aspect-16/9 w-full bg-surface-muted overflow-hidden border-b-2 border-primary">
             <Image
               src={item.image}
               alt={item.name}
@@ -75,16 +75,16 @@ export function MenuDetailModal({ item, onClose }: MenuDetailModalProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
             <div className="absolute bottom-3 left-4 flex gap-1.5">
               {item.isSignature && (
-                <Badge variant="accent" className="text-xs px-2.5 py-0.5">
-                  <Sparkles className="w-3 h-3 mr-1" />
+                <span className="text-xs font-black px-3 py-1 rounded-full bg-warm-yellow text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
+                  <Sparkles className="w-3.5 h-3.5 text-accent" />
                   Signature
-                </Badge>
+                </span>
               )}
               {item.isPopular && !item.isSignature && (
-                <Badge variant="default" className="text-xs px-2.5 py-0.5">
-                  <Heart className="w-3 h-3 mr-1 text-accent" />
+                <span className="text-xs font-black px-3 py-1 rounded-full bg-surface text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
+                  <Heart className="w-3.5 h-3.5 text-accent" />
                   Paling Favorit
-                </Badge>
+                </span>
               )}
             </div>
           </div>
@@ -166,10 +166,10 @@ export function MenuDetailModal({ item, onClose }: MenuDetailModalProps) {
               rel="noopener noreferrer"
               className="w-full block"
             >
-              <Button variant="accent" size="lg" className="w-full justify-center">
+              <button className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full font-extrabold text-sm text-surface bg-accent border-2 border-primary shadow-[4px_4px_0px_var(--color-shadow)] hover:shadow-[6px_6px_0px_var(--color-shadow)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_var(--color-shadow)] transition-all cursor-pointer">
                 <MessageCircle className="w-4 h-4" />
                 <span>Pesan / Tanya via WhatsApp</span>
-              </Button>
+              </button>
             </a>
           </div>
         </div>

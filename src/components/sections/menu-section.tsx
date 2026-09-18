@@ -94,10 +94,10 @@ export function MenuSection() {
                 onClick={() => setSelectedItem(item)}
                 className="cursor-pointer"
               >
-                <Card className="overflow-hidden hover:border-accent/50 hover:shadow-lg transition-all duration-300 flex flex-col group h-full">
+                <div className="bg-surface border-2 border-primary rounded-3xl shadow-[5px_5px_0px_var(--color-shadow)] hover:shadow-[7px_7px_0px_var(--color-shadow)] transition-all flex flex-col group h-full overflow-hidden">
                   {/* Image thumbnail */}
                   {item.image && (
-                    <div className="relative aspect-16/10 overflow-hidden bg-surface-muted">
+                    <div className="relative aspect-16/10 overflow-hidden bg-surface-muted border-b-2 border-primary">
                       <Image
                         src={item.image}
                         alt={item.name}
@@ -107,22 +107,22 @@ export function MenuSection() {
                       />
                       <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
                         {item.isSignature && (
-                          <Badge variant="accent" className="text-[10px] py-0.5 px-2">
-                            <Sparkles className="w-3 h-3 mr-1" />
+                          <span className="text-[10px] font-extrabold py-0.5 px-2.5 rounded-full bg-warm-yellow text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
+                            <Sparkles className="w-3 h-3 text-accent" />
                             Signature
-                          </Badge>
+                          </span>
                         )}
                         {item.isPopular && !item.isSignature && (
-                          <Badge variant="default" className="text-[10px] py-0.5 px-2">
-                            <Heart className="w-3 h-3 mr-1 text-accent" />
+                          <span className="text-[10px] font-extrabold py-0.5 px-2.5 rounded-full bg-surface text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
+                            <Heart className="w-3 h-3 text-accent" />
                             Favorit
-                          </Badge>
+                          </span>
                         )}
                       </div>
 
                       {/* Subtle hover overlay hint */}
-                      <div className="absolute inset-0 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-primary/80 backdrop-blur-xs px-3.5 py-1.5 rounded-full shadow-sm">
+                      <div className="absolute inset-0 bg-primary/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-black text-primary bg-warm-yellow border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)] px-3.5 py-1.5 rounded-full">
                           <Eye className="w-3.5 h-3.5" />
                           <span>Lihat Detail</span>
                         </span>
@@ -134,10 +134,10 @@ export function MenuSection() {
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
                     <div className="space-y-1.5">
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="font-bold text-base text-primary group-hover:text-accent transition-colors">
+                        <h3 className="font-extrabold text-base text-primary group-hover:text-accent transition-colors">
                           {item.name}
                         </h3>
-                        <span className="font-extrabold text-sm text-primary shrink-0">
+                        <span className="font-black text-xs text-primary bg-warm-yellow px-2.5 py-1 rounded-full border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] shrink-0">
                           {formatIDR(item.price)}
                         </span>
                       </div>
@@ -151,7 +151,7 @@ export function MenuSection() {
                         {item.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="text-[10px] font-medium text-secondary bg-surface-muted px-2 py-0.5 rounded-md"
+                            className="text-[10px] font-bold text-primary bg-surface-muted border border-border px-2 py-0.5 rounded-md"
                           >
                             #{tag}
                           </span>
@@ -159,7 +159,7 @@ export function MenuSection() {
                       </div>
                     )}
                   </div>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>

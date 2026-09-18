@@ -28,7 +28,7 @@ export function Footer() {
                 href={CAFE_INFO.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-surface-muted border border-border flex items-center justify-center text-secondary hover:text-accent hover:border-accent transition-all"
+                className="w-9 h-9 rounded-full bg-surface border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center justify-center text-primary hover:bg-warm-yellow transition-all"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
@@ -41,7 +41,7 @@ export function Footer() {
                 href={CAFE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-surface-muted border border-border flex items-center justify-center text-secondary hover:text-accent hover:border-accent transition-all"
+                className="w-9 h-9 rounded-full bg-surface border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center justify-center text-primary hover:bg-warm-yellow transition-all"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />

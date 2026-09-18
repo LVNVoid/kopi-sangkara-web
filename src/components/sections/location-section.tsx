@@ -53,48 +53,47 @@ export function LocationSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12">
           {/* Alamat & Jam Buka */}
           <div className="lg:col-span-6 space-y-6">
-            <Card className="overflow-hidden">
-              <CardContent className="p-8 space-y-6">
+            <div className="bg-surface rounded-3xl border-2 border-primary shadow-[6px_6px_0px_var(--color-shadow)] p-8 space-y-6 overflow-hidden">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-accent">
                       <MapPin className="w-5 h-5" />
-                      <span className="text-xs font-bold uppercase tracking-wider">
+                      <span className="text-xs font-black uppercase tracking-wider">
                         Alamat Lengkap
                       </span>
                     </div>
 
                     <button
                       onClick={handleCopyAddress}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary hover:text-accent bg-surface-muted px-2.5 py-1 rounded-full border border-border transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 text-xs font-black text-primary bg-warm-yellow px-3 py-1 rounded-full border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] transition-all cursor-pointer"
                       title="Salin Alamat"
                     >
                       {copied ? (
                         <>
                           <Check className="w-3.5 h-3.5 text-accent" />
-                          <span className="text-accent">Tersalin!</span>
+                          <span>Tersalin!</span>
                         </>
                       ) : (
                         <>
                           <Copy className="w-3.5 h-3.5" />
-                          <span>Salin</span>
+                          <span>Salin Alamat</span>
                         </>
                       )}
                     </button>
                   </div>
 
-                  <h3 className="text-xl font-bold text-primary">
+                  <h3 className="text-2xl font-black text-primary">
                     {CAFE_INFO.name}
                   </h3>
-                  <p className="text-sm text-secondary leading-relaxed">
+                  <p className="text-sm text-secondary leading-relaxed font-medium">
                     {CAFE_INFO.address}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-border space-y-4">
+                <div className="pt-4 border-t-2 border-border space-y-4">
                   <div className="flex items-center gap-2 text-accent">
                     <Clock className="w-5 h-5" />
-                    <span className="text-xs font-bold uppercase tracking-wider">
+                    <span className="text-xs font-black uppercase tracking-wider">
                       Jadwal Seduh & Buka
                     </span>
                   </div>
@@ -103,15 +102,15 @@ export function LocationSection() {
                     {OPERATING_HOURS.map((sched, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-xl bg-surface-muted border border-border/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
+                        className="p-4 rounded-2xl bg-surface-muted border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
                       >
                         <div>
-                          <span className="font-bold text-sm text-primary block">
+                          <span className="font-extrabold text-sm text-primary block">
                             {sched.days}
                           </span>
-                          <span className="text-xs text-secondary">{sched.note}</span>
+                          <span className="text-xs text-secondary font-medium">{sched.note}</span>
                         </div>
-                        <span className="text-sm font-extrabold text-accent shrink-0">
+                        <span className="text-xs font-black text-primary bg-warm-yellow px-2.5 py-1 rounded-full border border-primary shrink-0 self-start sm:self-auto">
                           {sched.hours}
                         </span>
                       </div>
@@ -125,48 +124,48 @@ export function LocationSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button variant="primary" size="md">
+                    <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-xs text-surface bg-accent border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)] hover:shadow-[5px_5px_0px_var(--color-shadow)] transition-all cursor-pointer">
                       <span>Buka di Google Maps</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </button>
                   </a>
                   <a
                     href={CAFE_INFO.whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button variant="outline" size="md">
-                      <MessageCircle className="w-4 h-4 text-accent" />
+                    <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-extrabold text-xs text-primary bg-surface border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)] hover:shadow-[5px_5px_0px_var(--color-shadow)] transition-all cursor-pointer">
+                      <MessageCircle className="w-3.5 h-3.5 text-accent" />
                       <span>Tanya Reservasi</span>
-                    </Button>
+                    </button>
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+            </div>
           </div>
 
           {/* Fasilitas Kafe */}
           <div className="lg:col-span-6 space-y-4">
-            <h3 className="text-lg font-bold text-primary px-1">
+            <h3 className="text-lg font-black text-primary px-1">
               Fasilitas Kenyamanan Pengunjung
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {CAFE_FACILITIES.map((fac) => {
                 const IconComponent = facilityIcons[fac.iconName] || Coffee;
                 return (
-                  <Card key={fac.id} className="hover:border-accent/40 transition-colors">
-                    <CardContent className="p-5 space-y-2">
-                      <div className="w-9 h-9 rounded-xl bg-accent-subtle text-accent flex items-center justify-center">
-                        <IconComponent className="w-4 h-4" />
-                      </div>
-                      <h4 className="text-sm font-bold text-primary">
-                        {fac.name}
-                      </h4>
-                      <p className="text-xs text-secondary leading-relaxed">
-                        {fac.description}
-                      </p>
-                    </CardContent>
-                  </Card>
+                  <div
+                    key={fac.id}
+                    className="bg-surface rounded-3xl border-2 border-primary shadow-[4px_4px_0px_var(--color-shadow)] p-5 space-y-2 hover:-translate-y-0.5 transition-transform"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-warm-yellow text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center justify-center">
+                      <IconComponent className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-sm font-extrabold text-primary">
+                      {fac.name}
+                    </h4>
+                    <p className="text-xs text-secondary leading-relaxed font-medium">
+                      {fac.description}
+                    </p>
+                  </div>
                 );
               })}
             </div>
