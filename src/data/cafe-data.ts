@@ -75,6 +75,9 @@ export const MENU_ITEMS: MenuItem[] = [
     isPopular: true,
     tags: ["Signature", "Best Seller"],
     image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Gula Aren Organik", "Creamy Vanilla", "Nutty Caramel"],
+    ingredients: ["Double Shot Espresso", "Fresh Steamed Milk", "Organic Palm Nectar"],
+    pairing: "Salted Caramel Croffle",
   },
   {
     id: "cloud-cinnamon-coldbrew",
@@ -86,6 +89,9 @@ export const MENU_ITEMS: MenuItem[] = [
     isPopular: true,
     tags: ["Cold Brew", "Artisan"],
     image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Kayu Manis", "Madu Liar", "Dark Chocolate"],
+    ingredients: ["Single Origin Cold Drip", "Cinnamon Infusion", "Velvet Sweet Foam"],
+    pairing: "Butter Croissant",
   },
   {
     id: "espresso-double",
@@ -95,6 +101,9 @@ export const MENU_ITEMS: MenuItem[] = [
     description: "Ekstraksi padat 2 shot dengan crema tebal aroma floral dan dark chocolate balance.",
     tags: ["Espresso"],
     image: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Dark Cocoa", "Roasted Almond", "Subtle Orange Zest"],
+    ingredients: ["100% Arabika Temanggung 18g Dose"],
+    pairing: "Sparkling Water Shot",
   },
   {
     id: "flat-white",
@@ -104,6 +113,9 @@ export const MENU_ITEMS: MenuItem[] = [
     description: "Ristretto ganda dengan microfoam susu sutra menghasilkan tekstur lembut seimbang.",
     tags: ["Espresso", "Milk"],
     image: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Silky Sweet Milk", "Milk Chocolate", "Toasted Walnut"],
+    ingredients: ["Double Ristretto", "Microfoamed Fresh Milk"],
+    pairing: "Almond Biscotti",
   },
   {
     id: "v60-sindoro-natural",
@@ -114,6 +126,9 @@ export const MENU_ITEMS: MenuItem[] = [
     isSignature: true,
     tags: ["Filter", "Single Origin"],
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Ripe Blackberry", "Plum Jam", "Earl Grey Tea Finish"],
+    ingredients: ["Arabika Sindoro Natural Process 15g"],
+    pairing: "Cinnamon Roll",
   },
   {
     id: "japanese-ice-drip",
@@ -123,6 +138,9 @@ export const MENU_ITEMS: MenuItem[] = [
     description: "Seduhan manual di atas es kristal, menghasilkan kejelasan rasa buah yang sangat segar.",
     tags: ["Refresh", "Filter"],
     image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Citrus Blossom", "Crisp Apple", "Cane Sugar"],
+    ingredients: ["Filter Brew over Clear Ice Spheres"],
+    pairing: "Lemon Tart",
   },
   {
     id: "artisan-matcha-latte",
@@ -133,6 +151,9 @@ export const MENU_ITEMS: MenuItem[] = [
     isPopular: true,
     tags: ["Non-Coffee"],
     image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Umami", "Fresh Grassy", "Subtle White Chocolate"],
+    ingredients: ["Ceremonial Uji Matcha", "Steamed Fresh Milk"],
+    pairing: "Matcha Scone",
   },
   {
     id: "earl-grey-lavender",
@@ -142,6 +163,9 @@ export const MENU_ITEMS: MenuItem[] = [
     description: "Seduhan daun teh hitam bergamot dengan kelopak bunga lavender yang menenangkan.",
     tags: ["Tea", "Relax"],
     image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Floral Lavender", "Citrus Bergamot", "Smooth Tannins"],
+    ingredients: ["Whole Leaf Ceylon", "French Lavender Petals"],
+    pairing: "Honey Butter Toast",
   },
   {
     id: "caramel-almond-croffle",
@@ -153,6 +177,9 @@ export const MENU_ITEMS: MenuItem[] = [
     isPopular: true,
     tags: ["Dessert", "Pastry"],
     image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Crispy Butter Layers", "Warm Toffee", "Sea Salt Crunch"],
+    ingredients: ["French Butter Croissant", "Homemade Caramel", "Flaked Almonds"],
+    pairing: "Hot Flat White or Palm Latte",
   },
   {
     id: "truffle-parmesan-fries",
@@ -162,6 +189,9 @@ export const MENU_ITEMS: MenuItem[] = [
     description: "Kentang goreng renyah bumbu minyak truffle asli dan taburan keju parmesan melimpah.",
     tags: ["Snack"],
     image: "https://images.unsplash.com/photo-1576107232684-1279f3908594?q=80&w=600&auto=format&fit=crop",
+    tastingNotes: ["Earth Truffle Aroma", "Savory Aged Cheese", "Crisp Golden Potato"],
+    ingredients: ["Shoestring Potatoes", "White Truffle Oil", "Grated Grana Padano"],
+    pairing: "Japanese Ice Drip",
   },
 ];
 

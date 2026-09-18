@@ -1,5 +1,8 @@
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Sparkles, Clock } from "lucide-react";
 import { CAFE_INFO } from "@/data/cafe-data";
 import { Button } from "@/components/ui/button";
@@ -10,8 +13,13 @@ export function HeroSection() {
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Text Content */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Text Content with Gentle Stagger */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-7 space-y-6"
+          >
             <div className="inline-flex items-center gap-2">
               <Badge variant="accent" className="px-3 py-1 text-xs">
                 <Sparkles className="w-3.5 h-3.5 mr-1" />
@@ -69,10 +77,15 @@ export function HeroSection() {
                 <span className="text-xs text-secondary font-medium">Menu & Pastry Hangat</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Visual Showcase Card */}
-          <div className="lg:col-span-5 relative">
+          {/* Visual Showcase Card with Soft Floating Motion */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            className="lg:col-span-5 relative"
+          >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               {/* Background ambient halo */}
               <div className="absolute -inset-2 rounded-3xl bg-accent/10 blur-xl opacity-70 pointer-events-none" />
@@ -90,8 +103,13 @@ export function HeroSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
                 </div>
 
-                {/* Overlay Floating Card */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-surface/95 backdrop-blur-md border border-border shadow-sm">
+                {/* Overlay Floating Card with micro motion */}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.35, duration: 0.5 }}
+                  className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-surface/95 backdrop-blur-md border border-border shadow-sm"
+                >
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wider text-accent">
@@ -105,10 +123,10 @@ export function HeroSection() {
                       Rp 24.000
                     </span>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

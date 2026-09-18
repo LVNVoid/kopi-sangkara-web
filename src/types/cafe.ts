@@ -10,6 +10,9 @@ export interface MenuItem {
   isPopular?: boolean;
   tags?: string[];
   image?: string;
+  tastingNotes?: string[];
+  ingredients?: string[];
+  pairing?: string;
 }
 
 export interface OperatingSchedule {

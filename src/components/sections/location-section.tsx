@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import {
   MapPin,
@@ -10,6 +12,8 @@ import {
   HeartHandshake,
   Sun,
   MessageCircle,
+  Copy,
+  Check,
 } from "lucide-react";
 import { CAFE_INFO, OPERATING_HOURS, CAFE_FACILITIES } from "@/data/cafe-data";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -28,6 +32,14 @@ const facilityIcons = {
 };
 
 export function LocationSection() {
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopyAddress = () => {
+    navigator.clipboard.writeText(CAFE_INFO.address);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   return (
     <section id="lokasi" className="py-20 md:py-28 border-t border-border/70 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,12 +56,33 @@ export function LocationSection() {
             <Card className="overflow-hidden">
               <CardContent className="p-8 space-y-6">
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-accent">
-                    <MapPin className="w-5 h-5" />
-                    <span className="text-xs font-bold uppercase tracking-wider">
-                      Alamat Lengkap
-                    </span>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-accent">
+                      <MapPin className="w-5 h-5" />
+                      <span className="text-xs font-bold uppercase tracking-wider">
+                        Alamat Lengkap
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={handleCopyAddress}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary hover:text-accent bg-surface-muted px-2.5 py-1 rounded-full border border-border transition-colors cursor-pointer"
+                      title="Salin Alamat"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-accent" />
+                          <span className="text-accent">Tersalin!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Salin</span>
+                        </>
+                      )}
+                    </button>
                   </div>
+
                   <h3 className="text-xl font-bold text-primary">
                     {CAFE_INFO.name}
                   </h3>
