@@ -11,8 +11,10 @@
   --color-accent-subtle: var(--color-accent-subtle);
   --color-border: var(--color-border);
   --color-border-subtle: var(--color-border-subtle);
-  --color-warm-yellow: var(--color-warm-yellow);
-  --color-warm-orange: var(--color-warm-orange);
+  --color-warm-yellow: var(--color-accent);
+  --color-warm-orange: var(--color-accent);
+  --color-cyber-glow: var(--color-cyber-glow);
+  --color-cyber-cyan: var(--color-cyber-cyan);
   --color-shadow: var(--color-shadow);
   --color-pattern-dot: var(--color-pattern-dot);
 
@@ -21,27 +23,30 @@
 
 :root {
   /* ==========================================================================
-     Playful Artisan Cafe Color Variables
-     Ubah nilai di bawah ini untuk mengubah seluruh tema warna website
+     Nocturnal Lab & Cyber Roastery Color Variables
+     Sistem token terpusat tanpa hardcoded colors
      ========================================================================== */
-  --color-canvas: #FAF6EF;
-  --color-surface: #FFFFFF;
-  --color-surface-muted: #F5F2EB;
-  --color-primary: #1C1917;
-  --color-secondary: #78716C;
-  --color-accent: #C2410C;
-  --color-accent-hover: #9A3412;
-  --color-accent-subtle: #FFEDD5;
-  --color-border: #E7E5E4;
-  --color-border-subtle: #F2EFEB;
-  --color-warm-yellow: #FEF08A;
-  --color-warm-orange: #FED7AA;
-  --color-shadow: #1C1917;
-  --color-pattern-dot: #D7CEBF;
+  --color-canvas: #09090B;
+  --color-surface: #141418;
+  --color-surface-muted: #1E1E24;
+  --color-primary: #F4F4F5;
+  --color-secondary: #CBD5E1;
+  --color-accent: #F97316;
+  --color-accent-hover: #EA580C;
+  --color-accent-subtle: rgba(249, 115, 22, 0.14);
+  --color-border: #27272A;
+  --color-border-subtle: #18181B;
+  --color-warm-yellow: #F97316;
+  --color-warm-orange: #FB923C;
+  --color-cyber-glow: rgba(249, 115, 22, 0.4);
+  --color-cyber-cyan: #06B6D4;
+  --color-shadow: #000000;
+  --color-pattern-dot: #222228;
 }
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -51,11 +56,19 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   position: relative;
+  overflow-x: hidden;
 }
 
+/* Subtle Cyber Grid & Dot Pattern */
 .bg-playful-pattern {
-  background-image: radial-gradient(circle, var(--color-pattern-dot) 1.2px, transparent 1.2px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(circle, var(--color-pattern-dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-cyber-lines {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 @keyframes marquee {
@@ -66,7 +79,7 @@ body {
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 25s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 
 .animate-marquee:hover {
@@ -82,12 +95,13 @@ body {
 .mh-highlight-bar {
   position: absolute;
   inset: 0.15em -6px;
-  background-color: var(--color-warm-yellow);
-  opacity: 0.85;
+  background-color: var(--color-accent);
+  opacity: 0.22;
   transform: scaleX(0);
   transform-origin: left center;
-  border-radius: 6px;
+  border-radius: 4px;
   z-index: 0;
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .mh-highlight-text {
@@ -101,9 +115,9 @@ body {
 
 .bloom-glow {
   position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, var(--color-warm-orange) 0%, transparent 70%);
-  filter: blur(35px);
+  inset: -25px;
+  background: radial-gradient(circle, var(--color-cyber-glow) 0%, transparent 70%);
+  filter: blur(40px);
   opacity: 0;
   transform: scale(0.85);
   pointer-events: none;

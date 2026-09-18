@@ -15,12 +15,12 @@ export function MenuSection() {
   const [selectedItem, setSelectedItem] = React.useState<MenuItem | null>(null);
 
   const categories: { id: MenuCategory; label: string }[] = [
-    { id: "all", label: "Semua Menu" },
-    { id: "signature", label: "Signature" },
-    { id: "espresso", label: "Espresso" },
-    { id: "manual-brew", label: "Manual Brew" },
-    { id: "non-coffee", label: "Tea & Others" },
-    { id: "food", label: "Bites & Pastry" },
+    { id: "all", label: "ALL LOTS" },
+    { id: "signature", label: "SIGNATURES" },
+    { id: "espresso", label: "ESPRESSO LAB" },
+    { id: "manual-brew", label: "FILTER & DRIP" },
+    { id: "non-coffee", label: "BOTANICAL & MATCHA" },
+    { id: "food", label: "BAKERY & BITES" },
   ];
 
   const filteredItems = React.useMemo(() => {
@@ -37,17 +37,17 @@ export function MenuSection() {
   };
 
   return (
-    <section id="menu" className="py-16 md:py-28 border-t border-border/70 scroll-mt-16">
+    <section id="menu" className="py-16 md:py-28 border-t border-border scroll-mt-16 bg-canvas">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Katalog Pilihan"
-          title="Menu Seduhan & Kudapan Unggulan"
-          subtitle="Diracik dengan bahan pilihan segar, tanpa pewarna atau perisa sintesis. Ketuk menu untuk detail komposisi dan pemesanan."
+          badge="// 02. CURATED EXTRACTION CATALOG"
+          title="Katalog Seduhan & Kudapan Naik Kelas"
+          subtitle="Setiap menu dikalibrasi rasio bahan dan ekstraksinya. Ketuk kartu untuk tasting notes lengkap dan pesan instan via WhatsApp."
           centered
         />
 
-        {/* Category Pills Filter - Touch Friendly & Horizontally Scrollable on Mobile */}
-        <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center scrollbar-none">
+        {/* Category Filter Pills - Horizontally Scrollable & Touch Friendly */}
+        <div className="flex items-center gap-2 mb-10 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center scrollbar-none font-mono">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (
@@ -55,16 +55,16 @@ export function MenuSection() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "relative px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-colors duration-200 cursor-pointer border border-transparent shrink-0 min-h-[44px] flex items-center justify-center select-none active:scale-95",
+                  "relative px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer border shrink-0 min-h-[44px] flex items-center justify-center select-none active:scale-95 tracking-wider",
                   isActive
-                    ? "text-surface"
-                    : "text-secondary hover:text-primary hover:bg-surface-muted/60"
+                    ? "text-canvas border-accent"
+                    : "text-secondary hover:text-primary hover:bg-surface border-border"
                 )}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activePillIndicator"
-                    className="absolute inset-0 bg-primary rounded-full shadow-[2px_2px_0px_var(--color-shadow)] -z-10"
+                    className="absolute inset-0 bg-accent rounded-full shadow-[0_0_15px_var(--color-cyber-glow)] -z-10"
                     transition={{ type: "spring", stiffness: 450, damping: 35 }}
                   />
                 )}
@@ -91,39 +91,41 @@ export function MenuSection() {
                 whileHover={{ y: -4 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedItem(item)}
-                className="cursor-pointer"
+                className="cursor-pointer group"
               >
-                <div className="bg-surface border-2 border-primary rounded-3xl shadow-[5px_5px_0px_var(--color-shadow)] hover:shadow-[7px_7px_0px_var(--color-shadow)] active:shadow-[2px_2px_0px_var(--color-shadow)] transition-all flex flex-col group h-full overflow-hidden">
+                <div className="bg-surface border border-border group-hover:border-accent/50 rounded-3xl transition-all flex flex-col h-full overflow-hidden shadow-lg group-hover:shadow-[0_0_24px_var(--color-cyber-glow)]">
                   {/* Image thumbnail */}
                   {item.image && (
-                    <div className="relative aspect-16/10 overflow-hidden bg-surface-muted border-b-2 border-primary">
+                    <div className="relative aspect-16/10 overflow-hidden bg-surface-muted border-b border-border">
                       <Image
                         src={item.image}
                         alt={item.name}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60" />
+
                       <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
                         {item.isSignature && (
-                          <span className="text-[10px] font-extrabold py-0.5 px-2.5 rounded-full bg-warm-yellow text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
-                            <Sparkles className="w-3 h-3 text-accent" />
-                            Signature
+                          <span className="text-[10px] font-mono font-bold py-0.5 px-2.5 rounded-full bg-accent text-canvas flex items-center gap-1 shadow-[0_0_10px_var(--color-cyber-glow)]">
+                            <Sparkles className="w-3 h-3" />
+                            SIGNATURE
                           </span>
                         )}
                         {item.isPopular && !item.isSignature && (
-                          <span className="text-[10px] font-extrabold py-0.5 px-2.5 rounded-full bg-surface text-primary border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] flex items-center gap-1">
+                          <span className="text-[10px] font-mono font-bold py-0.5 px-2.5 rounded-full bg-surface/90 backdrop-blur-md text-primary border border-border flex items-center gap-1">
                             <Heart className="w-3 h-3 text-accent" />
-                            Favorit
+                            FAVORITE
                           </span>
                         )}
                       </div>
 
                       {/* Tap / Hover Overlay */}
-                      <div className="absolute inset-0 bg-primary/25 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-black text-primary bg-warm-yellow border-2 border-primary shadow-[3px_3px_0px_var(--color-shadow)] px-3.5 py-1.5 rounded-full">
+                      <div className="absolute inset-0 bg-canvas/60 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xs">
+                        <span className="inline-flex items-center gap-2 text-xs font-mono font-black text-canvas bg-accent px-4 py-2 rounded-full shadow-[0_0_16px_var(--color-cyber-glow)]">
                           <Eye className="w-3.5 h-3.5" />
-                          <span>Lihat Detail & Order</span>
+                          <span>VIEW TASTING NOTES</span>
                         </span>
                       </div>
                     </div>
@@ -136,7 +138,7 @@ export function MenuSection() {
                         <h3 className="font-extrabold text-base text-primary group-hover:text-accent transition-colors">
                           {item.name}
                         </h3>
-                        <span className="font-black text-xs text-primary bg-warm-yellow px-2.5 py-1 rounded-full border-2 border-primary shadow-[2px_2px_0px_var(--color-shadow)] shrink-0">
+                        <span className="font-mono font-black text-xs text-accent bg-accent-subtle px-2.5 py-1 rounded-full border border-accent/30 shrink-0">
                           {formatIDR(item.price)}
                         </span>
                       </div>
@@ -145,21 +147,23 @@ export function MenuSection() {
                       </p>
                     </div>
 
-                    {item.tags && item.tags.length > 0 && (
-                      <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-border/40">
-                        <div className="flex flex-wrap gap-1">
-                          {item.tags.map((tag, idx) => (
-                            <span
-                              key={idx}
-                              className="text-[10px] font-bold text-secondary bg-surface-muted border border-border px-2 py-0.5 rounded-md"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
+                    {item.tastingNotes && item.tastingNotes.length > 0 && (
+                      <div className="pt-2 border-t border-border/50">
+                        <div className="flex flex-wrap items-center justify-between gap-1.5">
+                          <div className="flex flex-wrap gap-1">
+                            {item.tastingNotes.slice(0, 2).map((note, idx) => (
+                              <span
+                                key={idx}
+                                className="text-[10px] font-mono text-secondary bg-surface-muted border border-border/60 px-2 py-0.5 rounded"
+                              >
+                                {note}
+                              </span>
+                            ))}
+                          </div>
+                          <span className="text-[10px] font-mono font-bold text-accent group-hover:underline">
+                            Details →
+                          </span>
                         </div>
-                        <span className="text-[10px] font-extrabold text-accent flex items-center gap-1 sm:hidden">
-                          Detail →
-                        </span>
                       </div>
                     )}
                   </div>

@@ -1,18 +1,18 @@
 ---
 version: alpha
-name: Kopi Sangkara Nordic
-description: Nordic minimalist & natural light design system for Kopi Sangkara cafe landing page.
+name: Kopi Sangkara Nocturnal Lab
+description: Nocturnal coffee lab and cyber roastery design system with OLED dark theme, electric amber accents, and precision telemetry typography for Kopi Sangkara Naik Kelas.
 colors:
-  primary: "#1C1917"
-  secondary: "#78716C"
-  tertiary: "#C2410C"
-  neutral: "#FDFBF7"
-  surface: "#FFFFFF"
-  surface-muted: "#F5F5F4"
-  border: "#E7E5E4"
-  accent: "#C2410C"
-  accent-hover: "#9A3412"
-  accent-subtle: "#FFEDD5"
+  primary: "#F4F4F5"
+  secondary: "#A1A1AA"
+  tertiary: "#F97316"
+  neutral: "#09090B"
+  surface: "#141418"
+  surface-muted: "#1E1E24"
+  border: "#27272A"
+  accent: "#F97316"
+  accent-hover: "#EA580C"
+  accent-subtle: "#341D12"
 typography:
   h1:
     fontFamily: Plus Jakarta Sans
@@ -60,13 +60,13 @@ spacing:
   3xl: 64px
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "#FFFFFF"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.neutral}"
     rounded: "{rounded.full}"
     padding: 14px
   button-primary-hover:
-    backgroundColor: "{colors.accent}"
-    textColor: "#FFFFFF"
+    backgroundColor: "{colors.accent-hover}"
+    textColor: "{colors.neutral}"
   button-secondary:
     backgroundColor: "{colors.surface-muted}"
     textColor: "{colors.primary}"
@@ -86,32 +86,23 @@ components:
 
 ## Overview
 
-Nordic Minimalist & Natural Light visual identity for Kopi Sangkara. Clean Scandinavian aesthetics with warm paper canvas, crisp white surfaces, deep charcoal typography, and terracotta clay accents.
+Nocturnal Coffee Lab & Cyber Roastery visual identity for Kopi Sangkara "Naik Kelas". An OLED dark aesthetic featuring deep charcoal zinc surfaces, crisp silver-white typography, electric tangerine amber glow, and telemetry metadata.
 
 ## Colors
 
-- **Canvas / Neutral (#FDFBF7):** Warm off-white paper tone providing airy daylight ambiance.
-- **Surface (#FFFFFF):** Elevated card surfaces and navigation shells.
-- **Primary (#1C1917):** Deep roasted charcoal for high-contrast legible typography and primary buttons.
-- **Secondary (#78716C):** Warm stone grey for descriptions, secondary metadata, and inactive elements.
-- **Tertiary / Accent (#C2410C):** Terracotta clay for highlight badges, focus states, and warm CTAs.
-- **Border (#E7E5E4):** Light sandstone hairline dividers.
+- **Canvas / Neutral (#09090B):** Deep OLED pitch black providing cinematic contrast on mobile displays.
+- **Surface (#141418):** Precision dark zinc for card bodies and elevated panels.
+- **Primary (#F4F4F5):** High-contrast crisp silver-white for headlines and primary text.
+- **Secondary (#A1A1AA):** Technical slate grey for descriptions and metadata.
+- **Tertiary / Accent (#F97316):** Glowing electric amber / tangerine for CTAs, neon accents, and active highlights.
+- **Border (#27272A):** Precision dark hairline dividers.
 
 ## Typography
 
-Plus Jakarta Sans across all display headings, body prose, and UI microcopy.
-
-## Layout
-
-Generous whitespace (max width 1200px container), responsive 12-column grid, modular cards with 16px borders.
-
-## Components
-
-All buttons, cards, badges, and headers derive styling exclusively from CSS variables. Hardcoded arbitrary hex/rgb in JSX components is strictly prohibited.
+Plus Jakarta Sans for primary interface copy, supplemented by monospace telemetry tags and Didone serif arch accents for the "Naik Kelas" seal.
 
 ## Do's and Don'ts
 
-- **DO** define all palette tokens in CSS variables (`--color-canvas`, `--color-surface`, `--color-primary`, `--color-accent`, etc.).
+- **DO** define all palette tokens in CSS variables (`--color-canvas`, `--color-surface`, `--color-primary`, `--color-accent`).
 - **DO** use Tailwind semantic class utilities (`bg-canvas`, `text-primary`, `border-border`).
-- **DON'T** use hardcoded arbitrary hex values (e.g. `bg-[#FDFBF7]` or `text-[#C2410C]`) inside component markup.
-- **DON'T** clutter layouts with heavy shadows or dark overlays; maintain airy natural light feel.
+- **DON'T** use hardcoded arbitrary hex values inside component markup.
